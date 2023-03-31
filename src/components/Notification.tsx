@@ -1,18 +1,8 @@
-import React, { useState } from "react";
-import handleClose from "../App";
-
 interface Props {
   onClose: () => void;
 }
 
 const Notification = ({ onClose }: Props) => {
-  const [notification, setNotification] = useState(false);
-
-  const handleCloseNotification = () => {
-    setNotification(false);
-    handleClose();
-    console.log("close notification");
-  };
   return (
     <div
       className="alert alert-warning alert-dismissible fade show"
