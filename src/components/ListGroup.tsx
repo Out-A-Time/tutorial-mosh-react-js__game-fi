@@ -2,11 +2,12 @@ import React, { MouseEvent, useState } from "react";
 
 // Props are inputs to our component
 interface Props {
-  kasztan: string[];
+  kasztany: string[];
   heading: string;
+  onSelectKasztany: (kasztany: string[]) => void;
 }
 
-const ListGroup = ({ kasztan, heading }: Props) => {
+const ListGroup = ({ kasztany, heading, onSelectKasztany }: Props) => {
   const fruits = ["Banana", "Orange", "Apple", "Mango"];
   //   const fruits: any = [];
 
@@ -65,6 +66,23 @@ const ListGroup = ({ kasztan, heading }: Props) => {
           );
         })}
       </ul>
+      {/* This has been passed as props from APP parent */}
+      <ul>
+        {kasztany.map((kasztan: any, index: number) => {
+          return (
+            <li
+              className="list-group-item"
+              key={kasztan}
+              onClick={() => {
+                console.log(`You clicked on ${kasztan}`, index);
+                onSelectKasztany(kasztan);
+              }}
+            >
+              {kasztan}
+            </li>
+          );
+        })}
+      </ul>
       <h1>List Group 3</h1>
       {fruits.length === 0 && <p>No items</p>}{" "}
       {/* if ERROR display message ->  true && 'Mosh' returns 'Mosh'*/}
@@ -80,7 +98,7 @@ const ListGroup = ({ kasztan, heading }: Props) => {
       {/*  */}
       <h1>List Group 4</h1>
       {fruits.length === 0 && <p>No items</p>}
-      {kasztan.length === 0 && <p>No items</p>}
+      {kasztany.length === 0 && <p>No kasztans</p>}
       {/* if ERROR display message ->  true && 'Mosh' returns 'Mosh'*/}
       <ul className="list-group">
         {fruits.map((fruit: string, index: number) => {
