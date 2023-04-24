@@ -3,5 +3,7 @@
 Link to the YT:
 
 React18 with TypeScript
-Vite
+Vite (to run project locally type: "npm run dev") )
 Boostrap
+
+Branch "react-intro" explains basic React concepts.
