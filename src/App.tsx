@@ -1,16 +1,12 @@
-import ListGroup from "./components/ListGroup";
+import Alert from "./components/Alert";
 
 function App() {
-  let fruits = ["Banana", "Orange", "Apple", "Mango"];
-
-  const handleSelectItem = (item: string) => {
-    console.log("You clicked: " + item);
-
-  }
 
   return (
     <div className="App">
-      <ListGroup fruits={fruits} heading="FRUITS" onSelectItem={handleSelectItem} />
+      <Alert text="Hello World">
+        Hello <span>Mars</span>
+      </Alert>
     </div>
   );
 }
