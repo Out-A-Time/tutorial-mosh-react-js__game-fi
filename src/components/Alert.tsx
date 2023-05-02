@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 interface Props {
   text: string;
@@ -8,8 +8,8 @@ interface Props {
 const Alert = ({ text, children }: Props) => {
   return (
     <div className="alert alert-primary" role="alert">
-      Alert {text}
-      <p>{children}</p>
+      ALERT: {text}
+      <p>Children: {children}</p>
     </div>
   );
 };
