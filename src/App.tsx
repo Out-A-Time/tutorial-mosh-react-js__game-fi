@@ -1,12 +1,9 @@
-import Alert from "./components/Alert";
 
 function App() {
 
   return (
     <div className="App">
-      <Alert text="Hello World">
-        Hello <span>Mars</span>
-      </Alert>
+      Last lesson was Styling CSS lesson 025
     </div>
   );
 }
