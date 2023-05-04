@@ -1,15 +1,14 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 
 interface Props {
-  text: string;
-  children: ReactNode;
+  onClose: () => void;
 }
 
-const Alert = ({ text, children }: Props) => {
+const Alert = ({ onClose }: Props) => {
   return (
-    <div className="alert alert-primary" role="alert">
-      Alert {text}
-      <p>{children}</p>
+    <div className="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick={onClose}></button>
     </div>
   );
 };
