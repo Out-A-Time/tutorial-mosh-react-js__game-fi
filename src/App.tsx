@@ -1,9 +1,17 @@
+import { BsFillCalendar2DateFill } from 'react-icons/bs';
+import Button from './components/Button/Button';
+
+import styles from './App.module.css'
 
 function App() {
 
   return (
     <div className="App">
-      Last lesson was Styling CSS lesson 025
+      <BsFillCalendar2DateFill color='red' size="40" />
+      <button className={styles.buttonStyleOne}>Click Me!</button>
+      <button className={[styles.buttonStyleOne, styles.container].join('')}>Click Me!</button>
+      <button className={styles["buttonStyleTwo"]}>Click Me!</button>
+      <Button onClick={() => { }}>New Button</Button>
     </div>
   );
 }
