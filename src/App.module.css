@@ -15,3 +15,14 @@
 .container {
   background-color: grey;
 }
+
+.btn_btc {
+  height: 50px;
+  width: 250px;
+  color: orange;
+}
+
+.btc_icon {
+  background-color: blue;
+  width: 100%;
+}
