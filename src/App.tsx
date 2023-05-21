@@ -22,9 +22,15 @@ function App() {
   //Lesson039
   const [drink, setDrink] = useState({ title: 'Americano', price: 5 })
   //When updating object, we have to create new object
-  const handleClick = () => {
+  const handleClickL39 = () => {
     const newDrink = { ...drink, price: 7 }
     setDrink(newDrink)
+  }
+
+  //Lesson040
+  const [customer, setCustomer] = useState({ name: "John", address: { city: 'San Francisco', zipCode: '12345' } })
+  const handleClickL40 = () => {
+    setCustomer({ ...customer, address: { ...customer.address, zipCode: '77777' } })
   }
 
   return (
@@ -42,7 +48,10 @@ function App() {
       <Message />
       <Message />
 
-      <button onClick={handleClick}>Update Object</button> Drink Price: {drink.price}
+      //Lesson039
+      <button onClick={handleClickL39}>Update Object</button> Drink Price: {drink.price}
+      //Lesson040
+      <button onClick={handleClickL40}>Update Nested Object</button> ZipCode: {customer.address.zipCode}
     </div>
   );
 }
