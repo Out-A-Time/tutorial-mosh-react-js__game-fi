@@ -4,8 +4,19 @@ import Button from './components/Button/Button';
 
 import styles from './App.module.css'
 import ButtonBTC from './components/ButtonBTC/ButtonBTC';
+import { useState } from 'react';
 
 function App() {
+  //1-Way
+  const [firstName, setFirstName] = useState('Max')
+  const [lastName, setLastName] = useState('Kolonko')
+  const fullName = firstName + ' ' + lastName
+
+  //2-Way
+  const [person, setPerson] = useState({
+    firstName: '',
+    lastName: '',
+  })
 
   return (
     <div className="App">
@@ -15,6 +26,8 @@ function App() {
       <button className={styles["buttonStyleTwo"]}>Click Me!</button>
       <Button onClick={() => { }}>New Button</Button>
       <ButtonBTC />
+
+      {fullName}
     </div>
   );
 }
