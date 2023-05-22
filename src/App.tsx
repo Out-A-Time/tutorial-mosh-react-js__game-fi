@@ -33,6 +33,24 @@ function App() {
     setCustomer({ ...customer, address: { ...customer.address, zipCode: '77777' } })
   }
 
+  //Lesson041
+  const [tags, setTags] = useState(['happy', 'cheerful'])
+  //When updating arrays, we have to create new array with Spread Operator
+  const handleClickL41a = () => {
+    //Add element to array
+    setTags([...tags, 'exicting'])
+    console.log(tags);
+  }
+  const handleClickL41b = () => {
+    //Remove element from array
+    setTags([tags.filter(tag => tag !== 'happy')])
+    console.log(tags);
+  }
+  const handleClickL41c = () => {
+    //Update array
+    setTags(tags.map(tag => tag === 'happy' ? 'HAPPINNES' : tag))
+  }
+
   return (
     <div className="App">
       <BsFillCalendar2DateFill color='red' size="40" />
@@ -47,11 +65,20 @@ function App() {
       <Message />
       <Message />
       <Message />
-
+      <div>
       //Lesson039
-      <button onClick={handleClickL39}>Update Object</button> Drink Price: {drink.price}
+        <button onClick={handleClickL39}>Update Object</button> Drink Price: {drink.price}
+      </div>
+      <div>
       //Lesson040
-      <button onClick={handleClickL40}>Update Nested Object</button> ZipCode: {customer.address.zipCode}
+        <button onClick={handleClickL40}>Update Nested Object</button> ZipCode: {customer.address.zipCode}
+      </div>
+      <div>
+      //Lesson041
+        <button onClick={handleClickL41a}>Update Array ADD</button> {tags}
+        <button onClick={handleClickL41b}>Update Array REMOVE</button> {tags}
+        <button onClick={handleClickL41c}>Update Array UPDATE</button> {tags}
+      </div>
     </div>
   );
 }
