@@ -51,6 +51,19 @@ function App() {
     setTags(tags.map(tag => tag === 'happy' ? 'HAPPINNES' : tag))
   }
 
+  //Lesson042
+  const [bugs, setBugs] = useState([
+    { id: 1, title: 'Bug 1', fixed: false },
+    { id: 2, title: 'Bug 2', fixed: false },
+    { id: 3, title: 'Bug 3', fixed: false }
+  ]);
+
+  const handleClick42 = () => {
+    setBugs(bugs.map(bug => bug.id === 1 ? { ...bug, fixed: true } : bug))
+    console.log(`You clicked handleclick42`, bugs[0].fixed);
+
+  }
+
   return (
     <div className="App">
       <BsFillCalendar2DateFill color='red' size="40" />
@@ -79,6 +92,15 @@ function App() {
         <button onClick={handleClickL41b}>Update Array REMOVE</button> {tags}
         <button onClick={handleClickL41c}>Update Array UPDATE</button> {tags}
       </div>
+      //Lesson042
+      <div >
+        <p>Update Array of Objects</p>
+        <button onClick={handleClick42}>Update Array of Objects</button>
+        <p>Bugs.id: {bugs[0].id}, Bugs.title: {bugs[0].title}, Bugs.fixed: {bugs[0].fixed}</p>
+        <p>Bugs.id: {bugs[1].id}, Bugs.title: {bugs[1].title}, Bugs.fixed: {bugs[1].fixed}</p>
+        <p>Bugs.id: {bugs[2].id}, Bugs.title: {bugs[2].title}, Bugs.fixed: {bugs[2].fixed}</p>
+      </div>
+
     </div>
   );
 }
