@@ -6,6 +6,8 @@ import styles from './App.module.css'
 import ButtonBTC from './components/ButtonBTC/ButtonBTC';
 import { useState } from 'react';
 import Message from './components/Message/Message';
+import NavBar from './components/NavBar';
+import Cart from './components/Cart';
 
 function App() {
   //1-Way
@@ -64,6 +66,9 @@ function App() {
 
   }
 
+  //Lesson044
+  const [cartItems, setCartItems] = useState(['Product 1', 'Product 2', 'Product 3']);
+
   return (
     <div className="App">
       <BsFillCalendar2DateFill color='red' size="40" />
@@ -100,7 +105,12 @@ function App() {
         <p>Bugs.id: {bugs[1].id}, Bugs.title: {bugs[1].title}, Bugs.fixed: {bugs[1].fixed}</p>
         <p>Bugs.id: {bugs[2].id}, Bugs.title: {bugs[2].title}, Bugs.fixed: {bugs[2].fixed}</p>
       </div>
+      //Lesson043 - Sharing state between components
+      <div>
+        <NavBar cartItemsCount={cartItems.length} />
+        <Cart cartItems={cartItems} onClear={() => setCartItems([])} />
 
+      </div>
     </div>
   );
 }
