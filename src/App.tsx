@@ -69,6 +69,32 @@ function App() {
   //Lesson044
   const [cartItems, setCartItems] = useState(['Product 1', 'Product 2', 'Product 3']);
 
+  //Lesson045a
+  const [game, setGame] = useState({
+    id: 1,
+    player: {
+      name: "John"
+    }
+  })
+  const handleClick45a = () => {
+    console.log("you click the button lesson 045");
+    setGame({ ...game, player: { ...game.player, name: "Bob" } })
+    //We are creating a new object because spread operator is shallow and don't copy player properties
+    //  setGame({ ...game, player: { player.name: "Bob" } })
+    // That's why  player.name="Bob " won't work.
+    // Used solution is more 'future-proof', that's why we use spread operator twice, to copy twice and reach deeper.
+  }
+
+  // Lesson045b
+  const [pizza, setPizza] = useState({
+    name: "Spicy Pepperoni",
+    toppings: ['Mushroom']
+  })
+  const handleClick045b = () => {
+    setPizza({ ...pizza, toppings: [...pizza.toppings, 'new spicy ingriednt'] })
+
+  }
+
   return (
     <div className="App">
       <BsFillCalendar2DateFill color='red' size="40" />
@@ -109,7 +135,19 @@ function App() {
       <div>
         <NavBar cartItemsCount={cartItems.length} />
         <Cart cartItems={cartItems} onClear={() => setCartItems([])} />
-
+      </div>
+      //Lesson045
+      <div>
+        Lesson045a:
+        <p>Player ID: {game.id}</p>
+        <p>Player Name: {game.player.name}</p>
+        <button onClick={handleClick45a}>Changes player name to Bob</button>
+      </div>
+      <div>
+        Lesson045b:
+        <p>Pizza name: {pizza.name}</p>
+        <p>Pizza ingridients: {pizza.toppings}</p>
+        <button onClick={handleClick045b}>Add new ingriendt to the pizza toppings</button>
       </div>
     </div>
   );
