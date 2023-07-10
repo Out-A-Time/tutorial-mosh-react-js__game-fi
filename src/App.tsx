@@ -63,7 +63,6 @@ function App() {
   const handleClick42 = () => {
     setBugs(bugs.map(bug => bug.id === 1 ? { ...bug, fixed: true } : bug))
     console.log(`You clicked handleclick42`, bugs[0].fixed);
-
   }
 
   //Lesson044
@@ -92,7 +91,20 @@ function App() {
   })
   const handleClick045b = () => {
     setPizza({ ...pizza, toppings: [...pizza.toppings, 'new spicy ingriednt'] })
+    //Spread operator is shallow. That's why we spread twice.
 
+  }
+
+  // Lesson045c
+  const [cart, setCart] = useState({
+    discount: 0.1,
+    items: [
+      { id: 1, title: 'Product1', quantity: 1 },
+      { id: 4, title: 'Product1', quantity: 3 }
+    ]
+  })
+  const handleClick045c = () => {
+    setCart({ ...cart, items: cart.items.map(item => item.id === 1 ? { ...item, quantity: item.quantity + 1 } : item) })
   }
 
   return (
@@ -148,6 +160,12 @@ function App() {
         <p>Pizza name: {pizza.name}</p>
         <p>Pizza ingridients: {pizza.toppings}</p>
         <button onClick={handleClick045b}>Add new ingriendt to the pizza toppings</button>
+      </div>
+      <div>
+        Lesson045c:
+        <p>Products:</p>
+        <p>Cart items: {cart.map(cart.items)}</p>
+        <button onClick={handleClick045c}>Add 1 to quantity</button>
       </div>
     </div>
   );
